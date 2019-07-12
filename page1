@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TUGAS ANIMASI INTERAKTIF</title>
+<meta name="Description" content="Sistem Penerangan Kamar Hotel">
+<meta name="Keywords" content="HTML,CSS,JavaScript">	
+<meta name="Author" content="Dilan">
+<meta name="NIM" content="171041042">
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  top: 400px;
+  width: 34px;
+  height: 60px;
+  z-index: 2;
+}
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: sienna;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: khaki;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: olivedrab;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px orange;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateY(-26px);
+  -ms-transform: translateY(-26px);
+  transform: translateY(-26px);
+}
+
+h1 {
+  font-family: Timesnewroman;
+  text-align: center;
+  color: lightyellow;
+  opacity: .9;
+}
+h2 {
+  font-family: Timesnewroman;
+  text-align: center;
+  color: LightGoldenrodYellow 	;
+  opacity: .7;
+}
+
+h3 {
+}
+
+
+body {
+  background-color: black;
+  color: khaki;
+  font-family: Arial;
+  font-size: 18px;
+}
+.wall {
+  position: relative;
+  width: 100%;
+}
+.terang{
+  opacity: 1;
+  transition: .5s ease;
+ }  
+.gelap{
+  opacity: 0.2;
+  transition: .7s ease;
+}
+.deskripsi {
+font-family: arial; font-size: 22px; font-weight: bold; color: PaleGoldenrod;
+}
+.credit {
+text-align: right; color:darkgrey; font-family:courier;
+}
+
+
+.tab {
+  
+  bottom: 54px;
+  overflow: hidden;
+  border: 1px solid peru;
+  background-color: tan;
+}
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: wheat;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: peru;
+}
+/* Style the tab content */
+.tabcontent {
+  
+  bottom: 54px;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid peru;
+  border-top: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.topright:hover {color: red;}
+</style>
+</head>
+<body>
+
+
+<div id="tes"> 
+  <h1>ANIMASI INTERAKTIF PENERANGAN SISTEM KAMAR HOTEL</h1>
+  <h2>Dengan Saklar Tukar</h2> 
+    <label class="switch">
+	<input type="checkbox"checked onclick="switch1()" id="sk1" name="tukar1">
+	<span class="slider"></span>
+	</label>
+	<label class="switch" style="position: relative; float: right;">
+	<input type="checkbox"checked onclick="switch2()" id="sk2" name="tukar2">
+	<span class="slider"></span>
+	</label>
+	<img src="wall 1.jpg" alt="dinding" class="wall">
+
+</div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Tab1')">Pengertian</button>
+  <button class="tablinks" onclick="openTab(event, 'Tab2')">Prinsip Kerja</button>
+  <button class="tablinks" onclick="openTab(event, 'Tab3')">Penggunaan</button>
+</div>
+
+<div id="Tab1" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3>Pengertian dan fungsi</h3>
+  <ul>
+  <li>Instalasi penerangan sistem kamar hotel berfungsi untuk menyalakan dan mematikan satu buah lampu dari tempat yang berbeda dengan cara bergantian.<br>
+  <br><li>Instalasi penerangan sistem kamar hotel menggunakan dua buah saklar tukar.  <br>
+  <br><li>Saklar tukar berbeda dengan saklar biasa karena memiliki 3 kutub, berbeda juga dengan saklar seri untuk 2 lampu yang punya 4 kutub(2 pasang).
+  <br>
+  </ul>
+</div>
+
+<div id="Tab2" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3>Prinsip kerja sistem penerangan di atas adalah:</h3>
+  		<ul>
+		<li>Dalam sebuah lorong/ruangan panjang terdapat dua buah saklar tukar di tiap ujungnya yang mengendalikan sebuah lampu.<br>
+		<br><li>Lampu akan menyala jika kedua saklar berada pada posisi yang sama. <br>(Misal posisi saklar berada di bagian kontak atas semua atau kontak bawah semua) <br>
+		<br><li>Lampu akan padam jika kedua posisi saklar berbeda tempat. <br>(Misal satu saklar berada di kontak atas dan satu lainnya di kontak bawah atau sebaliknya) <br>
+		<br><li>Konsep inilah yang menyebabkan saklar bisa dihidupkan maupun dimatikan dari dua tempat yang berjauhan secara bergantian.
+		</ul>
+ 
+</div>
+
+<div id="Tab3" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+  <h3>Hubungan ini dipakai untuk tujuan melayani satu atau golongan lampu yang dapat dioperasionalkan dari dua tempat misalnya:</h3>
+  <ul>
+  <li>Lorong panjang atau gang-gang.
+  <br><br><li>Kamar besar dengan dua pintu.
+  <br><br><li>Tangga-tangga rumah bertingkat.
+  </ul> 
+</div>
+
+
+
+
+<p class="credit">created by dilan<br>171041042<br>made with HTML5</p>
+
+<script>
+var x=1, y=1 ;
+var kon;
+
+function saklar1(t){
+x = t ;
+kondisi();
+} 
+function saklar2(t){
+y = t ;
+kondisi();
+} 
+
+function kondisi(){
+if (x == y) {
+kon = "terang";
+} else {	
+kon = "gelap";
+}
+lampu();
+}
+
+function lampu() {
+document.getElementById("tes").className = kon;
+}
+
+function switch1() {
+if(document.getElementById("sk1").checked ) {
+    saklar1(1);
+	}else {
+	saklar1(0);
+	}
+}
+function switch2() {
+if(document.getElementById("sk2").checked ) {
+    saklar2(1);
+	}else {
+	saklar2(0);
+	}
+}
+
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html> 
