@@ -1,2 +1,0 @@
-# neruna
-Gearing Up
